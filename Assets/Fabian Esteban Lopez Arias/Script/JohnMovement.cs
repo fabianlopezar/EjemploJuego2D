@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class JohnMovement : MonoBehaviour
 {
@@ -13,12 +12,15 @@ public class JohnMovement : MonoBehaviour
     private float Horizontal;
     private bool Grounded;
     private float LastShoot;
-    private int Health = 5;
+    public  int Health = 5;
+
+    public TMP_Text heartTxt;
 
     private void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
+        heartTxt.text = "" + Health;
     }
 
     private void Update()
@@ -78,5 +80,6 @@ public class JohnMovement : MonoBehaviour
     {
         Health -= 1;
         if (Health == 0) Destroy(gameObject);
+        heartTxt.text = "" + Health;
     }
 }

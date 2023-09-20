@@ -38,7 +38,6 @@ Debug.Log("Se guardo la informacion");
             Destroy(other.gameObject);
         }
     }
-
     public void UpdateUI()
     {
         valorUI.text = "" + valor;
@@ -70,3 +69,8 @@ Debug.Log("Se guardo la informacion");
     }
 }
 
+/*
+  using TMPro;                  // Importacion   
+  public TMP_Text valorUI;      // Declaracion
+  valorUI.text = "" + valor;    // Actualizacion
+ */
