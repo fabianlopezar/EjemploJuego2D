@@ -32,7 +32,7 @@ public class JohnMovement : MonoBehaviour
         Animator.SetBool("running", Horizontal != 0.0f);
 
         // Detectar Suelo
-        // Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
+         Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
         if (Physics2D.Raycast(transform.position, Vector3.down, 0.1f))
         {
             Grounded = true;
@@ -42,6 +42,7 @@ public class JohnMovement : MonoBehaviour
         // Salto
         if (Input.GetKeyDown(KeyCode.W) && Grounded)
         {
+
             Jump();
         }
 

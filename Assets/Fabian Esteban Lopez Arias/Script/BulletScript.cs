@@ -10,10 +10,12 @@ public class BulletScript : MonoBehaviour
     private Rigidbody2D Rigidbody2D;
     private Vector3 Direction;
 
+
     private void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Camera.main.GetComponent<AudioSource>().PlayOneShot(Sound);
+
     }
 
     private void FixedUpdate()
@@ -45,4 +47,6 @@ public class BulletScript : MonoBehaviour
         }
         DestroyBullet();
     }
+ 
+
 }

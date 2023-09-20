@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 28b587c1b0512a547bc5119370d93fa4
+guid: bfdb3408425288e42b67bb788e0906f3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,56 +119,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grunt_idle_0
+      name: CoinSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 19
-        height: 18
+        x: 10
+        y: 104
+        width: 72
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 182e80f670b619d48b19902bc47f0a55
-      internalID: -1267302978
+      spriteID: 6b88d71c6acf83042a8b0996084c126a
+      internalID: -1919927854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grunt_idle_1
+      name: CoinSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 0
-        width: 19
-        height: 17
+        x: 98
+        y: 104
+        width: 55
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,8 +158,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e02ac73eb25e03a4ea505e5ca644d2f2
-      internalID: 2062801153
+      spriteID: 04dd9aaa73cca0e40b4163064ca295be
+      internalID: 200486331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoinSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 104
+        width: 35
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b08a5ac128eb34f894d868ab444fa3
+      internalID: -542626738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoinSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 104
+        width: 19
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea6811b305542d7438c9588dc1276b8e
+      internalID: 5037685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoinSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 104
+        width: 35
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b190e7e40cb59e4eb0c03349bccf943
+      internalID: -1619162285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoinSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 104
+        width: 55
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab114c46988fa042b27c5acf3b9be99
+      internalID: -1054132087
       vertices: []
       indices: 
       edges: []
@@ -214,8 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      grunt_idle_0: -1267302978
-      grunt_idle_1: 2062801153
+      CoinSpriteSheet_0: -1919927854
+      CoinSpriteSheet_1: 200486331
+      CoinSpriteSheet_2: -542626738
+      CoinSpriteSheet_3: 5037685
+      CoinSpriteSheet_4: -1619162285
+      CoinSpriteSheet_5: -1054132087
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
