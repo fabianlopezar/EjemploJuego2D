@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class Manager : MonoBehaviour
 {
     public GameObject panelInicio, panelPausa, panelGameOver;
@@ -25,5 +26,13 @@ public class Manager : MonoBehaviour
         Time.timeScale = 1;
         panelPausa.SetActive(false);
     }
+    public void RecargarEscena()
+    {
+   
+        // Obtiene el índice de la escena actual
+        int indiceEscenaActual = SceneManager.GetActiveScene().buildIndex;
+            // Carga la escena actual nuevamente
+            SceneManager.LoadScene(indiceEscenaActual);
+}
 }
 

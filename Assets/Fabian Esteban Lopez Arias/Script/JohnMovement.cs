@@ -13,6 +13,8 @@ public class JohnMovement : MonoBehaviour
     private bool Grounded;
     private float LastShoot;
     public  int Health = 5;
+    public GameObject panelOver;
+    public GameObject panelWin;
 
     public TMP_Text heartTxt;
 
@@ -21,6 +23,9 @@ public class JohnMovement : MonoBehaviour
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         heartTxt.text = "" + Health;
+        panelOver.SetActive(false);
+        panelWin.SetActive(false);
+        
     }
 
     private void Update()
@@ -79,7 +84,12 @@ public class JohnMovement : MonoBehaviour
     public void Hit()
     {
         Health -= 1;
-        if (Health == 0) Destroy(gameObject);
+        if (Health == 0)
+        {
+            Time.timeScale = 0;
+            panelWin.SetActive(true);
+        }
         heartTxt.text = "" + Health;
+        Debug.Log("deberia funcionar");
     }
 }
