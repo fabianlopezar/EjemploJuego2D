@@ -5,7 +5,7 @@ using System.IO;
 [System.Serializable]
 public class MonedasData
 {
-    public int valor;
+    public float valor;
     public TMP_Text nombreTXT;
 }
 
@@ -15,25 +15,18 @@ public class Monedas : MonoBehaviour
     public TMP_Text nombreTXT;
     public TMP_Text seGuardoTXT;
 
-    public int valor = 0;
-    public string monedasTxt;
+    public float valor;    //SaveData
+    public string monedasTxt;    //SaveData
+
     public GameObject panelWin;
 
-    private string dataFilePath = "monedasData.json"; // Nombre del archivo JSON
-  
+    private string dataFilePath = "monedasData.json";     //SaveData
+
     public void Awake(){
-Debug.Log("Se cargo la informacion");
+         
             LoadDataFromJson();
-        panelWin.SetActive(false);
-}
-    void Update()
-    {
-        // Detectar si se presiona la tecla 'G' para guardar datos
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-Debug.Log("Se guardo la informacion");
-            SaveDataToJson();
-        }
+            panelWin.SetActive(false);
+            valor = GameManager.Instance._coins;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -42,6 +35,7 @@ Debug.Log("Se guardo la informacion");
         {
             valor++;
             GameManager.Instance.SumarPuntos(1);
+            GameManager.Instance.AddCoins();
             UpdateUI();
             Destroy(other.gameObject);
         }
@@ -74,6 +68,7 @@ Debug.Log("Se guardo la informacion");
     // Método para cargar los datos desde el archivo JSON
     public void LoadDataFromJson()
     {
+        Debug.Log("Se cargo la informacion");
         if (File.Exists(dataFilePath))
         {
             string jsonData = File.ReadAllText(dataFilePath);
@@ -83,10 +78,7 @@ Debug.Log("Se guardo la informacion");
             UpdateUI();
         }
     }
-    public void TraerInfo()
-    {
-       //GameManager.
-    }
+  
 
 }
 
