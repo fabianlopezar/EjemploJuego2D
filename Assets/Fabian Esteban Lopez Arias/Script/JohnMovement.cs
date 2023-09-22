@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class JohnMovement : MonoBehaviour
 {
@@ -71,6 +72,7 @@ public class JohnMovement : MonoBehaviour
                 Shoot();
                 LastShoot = Time.time;
             } }
+
     }
 
     private void FixedUpdate()
@@ -100,14 +102,15 @@ public class JohnMovement : MonoBehaviour
         {
             Health -= 1;
             PlaySound(deathSound);
+
         }
        
         if (Health == 0)
         {
-            //    Time.timeScale = 0;
-            // panelWin.SetActive(true);
+           
             estaMuerto = true;
             Animator.SetBool("muerto", true);
+ StartCoroutine(WaitFor5Seconds());
         }
         heartTxt.text = "" + Health;
         
@@ -117,4 +120,13 @@ public class JohnMovement : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
     }
+IEnumerator WaitFor5Seconds()
+    {
+        yield return new WaitForSeconds(3.0f);
+             Time.timeScale = 0;
+             panelWin.SetActive(true);
+        
+    }
+
+
 }

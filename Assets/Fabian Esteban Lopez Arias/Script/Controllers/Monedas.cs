@@ -5,13 +5,14 @@ public class Monedas : MonoBehaviour
     public TMP_Text valorUI;
     public TMP_Text nombreTXT;
     public TMP_Text seGuardoTXT;
-    public float valor;//este me sirve para actualizar la ui.
+    public float valor;//este me sirve para actualizar la UI.
     public GameObject panelWin;
 
     public void Start(){
     panelWin.SetActive(false);
-            UpdateUI();
-             }
+    UpdateUI();
+    Debug.Log( GameManager.Instance._coins);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -6,15 +6,10 @@ public class GruntScript : MonoBehaviour
 {
     public Transform John;
     public GameObject BulletPrefab;
-    private Animator Animator;
-    public int Health = 3;
+
+    private int Health = 3;
     private float LastShoot;
-    private void Start()
-    {
 
-        Animator = GetComponent<Animator>();
-
-    }
     void Update()
     {
         if (John == null) return;
@@ -29,11 +24,6 @@ public class GruntScript : MonoBehaviour
         {
             Shoot();
             LastShoot = Time.time;
-            Animator.SetBool("estaCorriendo", true);
-        }
-        else
-        {
-                  Animator.SetBool("estaCorriendo", false);
         }
     }
 
@@ -47,7 +37,6 @@ public class GruntScript : MonoBehaviour
     public void Hit()
     {
         Health -= 1;
-
         if (Health == 0) Destroy(gameObject);
     }
 }
