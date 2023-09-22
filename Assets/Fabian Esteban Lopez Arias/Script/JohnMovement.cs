@@ -6,6 +6,7 @@ public class JohnMovement : MonoBehaviour
     public float Speed;
     public float JumpForce;
    public GameObject BulletPrefab;
+    private AudioSource audioSource;
 
     private Rigidbody2D Rigidbody2D;
     private Animator Animator;
@@ -17,48 +18,59 @@ public class JohnMovement : MonoBehaviour
     public GameObject panelWin;
 
     public TMP_Text heartTxt;
+    public bool estaMuerto = false;
+    #region
 
+    [Header("Audios")]
+    public AudioClip jumpSound;
+    public AudioClip deathSound;
+    public AudioClip runSound;
+    #endregion
     private void Start()
     {
+
         Rigidbody2D = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         heartTxt.text = "" + Health;
         panelOver.SetActive(false);
         panelWin.SetActive(false);
-        
+
+
     }
 
     private void Update()
     {
         // Movimiento
-        Horizontal = Input.GetAxisRaw("Horizontal");
+        if (estaMuerto == false) {
+            Horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Horizontal < 0.0f) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-        else if (Horizontal > 0.0f) transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            if (Horizontal < 0.0f) { transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f); PlaySound(runSound); }
+            else if (Horizontal > 0.0f ) { transform.localScale = new Vector3(1.0f, 1.0f, 1.0f); PlaySound(runSound); }
 
-        Animator.SetBool("running", Horizontal != 0.0f);
+            Animator.SetBool("running", Horizontal != 0.0f);
 
-        // Detectar Suelo
-         Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
-        if (Physics2D.Raycast(transform.position, Vector3.down, 0.1f))
-        {
-            Grounded = true;
-        }
-        else Grounded = false;
+            // Detectar Suelo
+            Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
+            if (Physics2D.Raycast(transform.position, Vector3.down, 0.1f))
+            {
+                Grounded = true;
+            }
+            else Grounded = false;
 
-        // Salto
-        if (Input.GetKeyDown(KeyCode.W) && Grounded)
-        {
+            // Salto
+            if (Input.GetKeyDown(KeyCode.W) && Grounded)
+            {
 
-            Jump();
-        }
+                Jump();
+            }
 
-        // Disparar
-        if (Input.GetKey(KeyCode.Space) && Time.time > LastShoot + 0.25f)
-        {
-            Shoot();
-            LastShoot = Time.time;
-        }
+            // Disparar
+            if (Input.GetKey(KeyCode.Space) && Time.time > LastShoot + 0.25f)
+            {
+                Shoot();
+                LastShoot = Time.time;
+            } }
     }
 
     private void FixedUpdate()
@@ -68,6 +80,7 @@ public class JohnMovement : MonoBehaviour
 
     private void Jump()
     {
+        PlaySound(jumpSound);
         Rigidbody2D.AddForce(Vector2.up * JumpForce);
     }
 
@@ -83,13 +96,25 @@ public class JohnMovement : MonoBehaviour
 
     public void Hit()
     {
-        Health -= 1;
+        if (Health > 0)
+        {
+            Health -= 1;
+            PlaySound(deathSound);
+        }
+       
         if (Health == 0)
         {
-            Time.timeScale = 0;
-            panelWin.SetActive(true);
+            //    Time.timeScale = 0;
+            // panelWin.SetActive(true);
+            estaMuerto = true;
+            Animator.SetBool("muerto", true);
         }
         heartTxt.text = "" + Health;
-        Debug.Log("deberia funcionar");
+        
+    }
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 }
