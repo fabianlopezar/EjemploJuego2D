@@ -3,7 +3,7 @@ using TMPro;
 using System.IO;
 
 [System.Serializable]
-public class DataPlayer
+public class DataPlayer //Esta Clase va a ser la plantilla para guardar mis datos.
 {
     public float _coinsValue;
     public string _name;
@@ -11,10 +11,10 @@ public class DataPlayer
 
 public class SaveData : MonoBehaviour
 {
-    public TMP_Text _nameTMP;
-    public TMP_Text _showName;
-    public TMP_Text _showCoin;
-    private string dataFilePath = "monedasData.json";
+    public TMP_Text _nameTMP; //Este es el texto que recibo y guardo(_name).
+    public TMP_Text _showName;//Este texto muestra el nombre guardado.
+    public TMP_Text _showCoin;//Este texto muestra las monedas guardadas.
+    private string dataFilePath = "monedasData.json"; //Creo un string con el nombre del archivo que quiero crear.
 
     public void Awake()
     {
@@ -23,7 +23,7 @@ public class SaveData : MonoBehaviour
 
     public void SaveDataToJson()
     {
-        RecibirNombre();//actualizo la variable del _name GameManager con lo que recibo.
+        RecibirNombre();//actualizo la variable (GameManager._name) con lo que recibo por pantalla.
         DataPlayer dataPlayer = new DataPlayer(); //Creo una instancia de la clase que quiero guardar en Json.
         dataPlayer._coinsValue = GameManager.Instance._coins;//declaro las variables que recibe esa clase.
         dataPlayer._name = GameManager.Instance._name;//declaro las variables que recibe esa clase.
