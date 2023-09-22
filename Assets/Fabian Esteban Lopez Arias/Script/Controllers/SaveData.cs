@@ -28,12 +28,12 @@ public class SaveData : MonoBehaviour
         dataPlayer._coinsValue = GameManager.Instance._coins;//declaro las variables que recibe esa clase.
         dataPlayer._name = GameManager.Instance._name;//declaro las variables que recibe esa clase.
 
-        string jsonData = JsonUtility.ToJson(dataPlayer);
+        string jsonData = JsonUtility.ToJson(dataPlayer);//Esta linea sirve para convertir un objeto llamado dataPlayer en una cadena de texto que representa ese objeto en formato JSON. 
 
         // Guardar la cadena JSON en un archivo
-        File.WriteAllText(dataFilePath, jsonData);
-        Debug.Log("se guardaromn los datos: "+dataPlayer+"-"+dataPlayer._name+"-"+dataPlayer._coinsValue);
-MostrarDatosGuardados();
+        File.WriteAllText(dataFilePath, jsonData);//esta línea de código toma la cadena jsonData y la escribe en el archivo especificado por dataFilePath.
+       
+	MostrarDatosGuardados();
     }
    public void LoadDataFromJson()
     {
@@ -41,7 +41,7 @@ MostrarDatosGuardados();
         if (File.Exists(dataFilePath))
         {
             string jsonData = File.ReadAllText(dataFilePath);
-            DataPlayer dataPlayer = JsonUtility.FromJson<DataPlayer>(jsonData);
+            DataPlayer dataPlayer = JsonUtility.FromJson<DataPlayer>(jsonData);//El propósito de este método es convertir una cadena JSON en un objeto del tipo especificado, que en este caso es DataPlayer.
 
             GameManager.Instance._coins = dataPlayer._coinsValue;
             GameManager.Instance._name = dataPlayer._name;
